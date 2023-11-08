@@ -24,12 +24,19 @@ class InMemoryTopicRepository : TopicRepository {
     override fun getTopics(): List<Topic> {
         return topics
     }
-
     override fun getTopic(title: String): Topic? {
         return topics.find { it.title == title }
     }
-
     override fun getQuestionsByTopic(title: String): List<Quiz> {
         return topics.find { it.title == title }?.questionObjects ?: emptyList()
     }
+    override fun getTopicsStrings(): List<String> {
+//        var topicStrings = mutableListOf<String>()
+//        topics.forEach { topic ->
+//            topicStrings.add(topic.title)
+//        }
+//        return topicStrings
+        return topics.map { it.title }
+    }
+
 }
