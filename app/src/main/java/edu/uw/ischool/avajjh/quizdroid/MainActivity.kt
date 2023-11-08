@@ -10,16 +10,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val listView = findViewById<ListView>(R.id.list_view)
-        var topicList = ArrayList<String>()
-        topicList.add("Math")
-        topicList.add("Physics")
-        topicList.add("Marvel Super Heroes")
+//        var topicList = ArrayList<String>()
+//        topicList.add("Math")
+//        topicList.add("Physics")
+//        topicList.add("Marvel Super Heroes")
 
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, topicList)
+        val topicList = QuizApp.topicRepository.getTopics()
+
+        val adapter = ArrayAdapter<Topic>(this, android.R.layout.simple_list_item_1, topicList)
         listView.setAdapter(adapter)
 
         listView.setOnItemClickListener { parent, view, position, id ->
-            val selectedTopic = topicList[position]
+            val selectedTopic = topicList[position].title
             val intent = Intent(this, TopicOverviewActivity::class.java)
             intent.putExtra("selectedTopic", selectedTopic)
             startActivity(intent)
