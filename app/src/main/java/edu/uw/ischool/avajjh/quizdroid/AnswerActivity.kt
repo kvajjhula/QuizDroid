@@ -17,7 +17,6 @@ class AnswerActivity : AppCompatActivity() {
         val isLastQuestion = intent.getBooleanExtra("isLastQuestion", false)
         val totalQuestions = intent.getIntExtra("totalQuestions", 0)
 
-        Log.d("debug", correctAnswer.toString())
         val correctAnswerTextView : TextView = findViewById(R.id.correctAnswer)
         val userAnswerTextView : TextView = findViewById(R.id.userAnswered)
         val numCorrectAnswersTextView : TextView = findViewById(R.id.questionsAnswered)

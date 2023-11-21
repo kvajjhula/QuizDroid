@@ -30,9 +30,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("selectedTopic", selectedTopic)
             startActivity(intent)
         }
-        Log.i("mainactivity", filesDir.toString())
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
