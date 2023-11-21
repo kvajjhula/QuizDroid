@@ -15,6 +15,7 @@ class AnswerActivity : AppCompatActivity() {
         val userAnswer = intent.getStringExtra("userAnswer")
         val numCorrectAnswers = intent.getIntExtra("numCorrectAnswers", 0)
         val isLastQuestion = intent.getBooleanExtra("isLastQuestion", false)
+        val totalQuestions = intent.getIntExtra("totalQuestions", 0)
 
         Log.d("debug", correctAnswer.toString())
         val correctAnswerTextView : TextView = findViewById(R.id.correctAnswer)
@@ -23,7 +24,7 @@ class AnswerActivity : AppCompatActivity() {
 
         val correctAnswerMessage = "The correct answer was $correctAnswer"
         val userAnswerMessage = "You answered $userAnswer"
-        val numCorrectAnswersMessage = "You have gotten $numCorrectAnswers out of 3 questions right so far"
+        val numCorrectAnswersMessage = "You have gotten $numCorrectAnswers out of $totalQuestions questions right so far"
         correctAnswerTextView.text = correctAnswerMessage
         userAnswerTextView.text = userAnswerMessage
         numCorrectAnswersTextView.text = numCorrectAnswersMessage
